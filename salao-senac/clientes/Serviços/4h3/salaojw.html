@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salão de Beleza</title>
+    <!-- Link do CSS do Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="salaojw.css">
+</head>
+<body>
+
+    <script src="salaojw.js"></script>
+
+<div class="container my-5">
+    <!-- Linha de Filtragem -->
+    <div class="row mb-4">
+        <h3 class="mb-3">Filtros</h3>
+
+        <!-- Faixa de Preço -->
+        <div class="col-md-3">
+            <label for="precoMin" class="form-label">Preço Mínimo</label>
+            <input type="number" class="form-control" id="precoMin" placeholder="R$">
+        </div>
+        <div class="col-md-3">
+            <label for="precoMax" class="form-label">Preço Máximo</label>
+            <input type="number" class="form-control" id="precoMax" placeholder="R$">
+        </div>
+
+        <!-- Tags -->
+        <div class="col-md-3">
+            <label for="tags" class="form-label">Tags</label>
+            <select class="form-select" id="tags">
+                <option selected>Escolha...</option>
+                <option value="Corte">Corte</option>
+                <option value="Coloração">Coloração</option>
+                <option value="Hidratação">Hidratação</option>
+            </select>
+        </div>
+
+        <!-- Facilidades -->
+        <div class="col-md-3">
+            <label for="facilidades" class="form-label">Facilidades</label>
+            <select class="form-select" id="facilidades">
+                <option selected>Escolha...</option>
+                <option value="Wi-Fi">Wi-Fi</option>
+                <option value="Estacionamento">Estacionamento</option>
+                <option value="Acessibilidade">Acessibilidade</option>
+            </select>
+        </div>
+
+        <!-- Botão de Filtrar -->
+        <div class="col-12 mt-3">
+            <button class="btn btn-primary" onclick="filtrarServicos()">Filtrar</button>
+        </div>
+    </div>
+
+    <!-- Linha de Serviços -->
+    <div class="row" id="servicos">
+        <h3 class="mb-3">Serviços Disponíveis</h3>
+
+        <!-- Exemplo de serviço -->
+        <div class="col-md-4 mb-4 servico" data-preco="100" data-tags="Corte" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Corte de Cabelo</h5>
+                    <p class="card-text">Preço: R$100</p>
+                    <p class="card-text">Tags: Corte</p>
+                    <p class="card-text">Facilidades: Wi-Fi</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Outros serviços aqui -->
+        <div class="col-md-4 mb-4 servico" data-preco="200" data-tags="Coloração" data-facilidades="Estacionamento">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Coloração Completa</h5>
+                    <p class="card-text">Preço: R$200</p>
+                    <p class="card-text">Tags: Coloração</p>
+                    <p class="card-text">Facilidades: Estacionamento</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4 servico" data-preco="150" data-tags="Hidratação" data-facilidades="Acessibilidade">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Hidratação Capilar</h5>
+                    <p class="card-text">Preço: R$150</p>
+                    <p class="card-text">Tags: Hidratação</p>
+                    <p class="card-text">Facilidades: Acessibilidade</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-content">
+        <div class="services-footer">
+            <h3>Encontre no Salão Senac</h3>
+            
+            <a href="">Unhas</a>
+            <a href="">Cabelos</a>
+            <a href="">Barbearia</a>
+            <a href="">Depilação</a>
+            <a href="">Maquiagem</a>
+            <a href="">Sobrancelhas</a>
+            <a href="">Massagem e Estética</a>
+            <a href="">Podologia</a>
+            
+        </div>
+        <div class="terms-footer">
+            <h3>Termos de Serviço</h3>
+            <p><a href="#">Termos de uso</a></p>
+            <p><a href="#">Dúvidas frequentes</a></p>
+            <p><a href="#">Política de privacidade</a></p>
+        </div>
+        <div class="contact-footer">
+            <h3>Contato</h3>
+            <p>Email: contato@salonsenac.com</p>
+            <p>Telefone: (11) 1234-5678</p>
+            <p>Endereço: Rua Exemplo, 123 - São Paulo, SP</p>
+        </div>
+    </div>
+    <div class="redes-footer">
+        <p>Nossas redes sociais</p>
+    </div>
+</footer>
+
+<!-- Scripts do Bootstrap e custom -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

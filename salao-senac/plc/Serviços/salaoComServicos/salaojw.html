@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salão de Beleza</title>
+    <!-- Link do CSS do Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="salaojw.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Salão Senac</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Agendamento</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Serviços</a>
+              </li>
+            </ul>
+            <input class="btn btn-primary" type="submit" value="Login">
+          </div>
+        </div>
+    </nav>
+
+
+    <script src="salaojw.js"></script>
+
+<div class="container my-5">
+    <!-- Linha de Filtragem -->
+    <div class="row mb-4">
+        <h3 class="mb-3">Filtros</h3>
+
+        <!-- Faixa de Preço -->
+        <div class="col-md-3">
+            <label for="precoMin" class="form-label">Preço Mínimo</label>
+            <input type="number" class="form-control" id="precoMin" placeholder="R$">
+        </div>
+        <div class="col-md-3">
+            <label for="precoMax" class="form-label">Preço Máximo</label>
+            <input type="number" class="form-control" id="precoMax" placeholder="R$">
+        </div>
+
+        <!-- Tags 
+        <div class="col-md-3">
+            <label for="tags" class="form-label">Tags</label>
+            <select class="form-select" id="tags">
+                <option selected>Escolha...</option>
+                <option value="Corte">Corte</option>
+                <option value="Coloração">Coloração</option>
+                <option value="Hidratação">Hidratação</option>
+            </select>
+        </div>
+-->
+
+            <!-- Tags -->
+            <div class="col-md-3">
+                <label for="tags" class="form-label">Tags</label>
+                <select class="form-select" id="tags">
+                    <option selected>Escolha...</option>
+                    <option value="Corte">Corte</option>
+                    <option value="Coloração">Coloração</option>
+                    <option value="Hidratação">Hidratação</option>
+                    <option value="Alisamento">Alisamento</option>
+                    <option value="Hidroxidos">Hidróxidos</option>
+                    <option value="Realinhamento">Realinhamento</option>
+                    <option value="Texturização">Texturização</option>
+                    <option value="Relaxamento">Relaxamento</option>
+                    <option value="Permanente">Permanente</option>
+                    <option value="Desintoxicação">Desintoxicação</option>
+                    <option value="Esmaltação">Esmaltação</option>
+                    <option value="Manicure">Manicure</option>
+                    <option value="Pedicure">Pedicure</option>
+                    <option value="Sobrancelhas">Sobrancelhas</option>
+                    <option value="Maquiagem">Maquiagem</option>
+                    <option value="Podologia">Podologia</option>
+                    <option value="Nutrição">Nutrição</option>
+                    <option value="Cauterização">Cauterização</option>
+                    <option value="Argiloterapia">Argiloterapia</option>
+                    <option value="Decapagem">Decapagem</option>
+                    <option value="Mechas">Mechas</option>
+                    <option value="Reflexos">Reflexos</option>
+                    <option value="Estética">Estética</option>
+
+                </select>
+            </div>
+
+
+        <!-- Facilidades -->
+        <div class="col-md-3">
+            <label for="facilidades" class="form-label">Facilidades</label>
+            <select class="form-select" id="facilidades">
+                <option selected>Escolha...</option>
+                <option value="Wi-Fi">Wi-Fi</option>
+                <option value="Estacionamento">Estacionamento</option>
+                <option value="Acessibilidade">Acessibilidade</option>
+            </select>
+        </div>
+
+        <!-- Botão de Filtrar -->
+        <div class="col-12 mt-3">
+            <button class="btn btn-primary" onclick="filtrarServicos()">Filtrar</button>
+        </div>
+    </div>
+
+    <!-- Linha de Serviços -->
+    <div class="row" id="servicos">
+        <h3 class="mb-3">Serviços Disponíveis</h3>
+
+        <!-- Exemplo de serviço -->
+
+        <div class="col-md-4 mb-4 servico" data-preco="100" data-tags="Corte" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Corte de Cabelo</h5>
+                    <p class="card-text">Preço: R$100</p>
+                    <p class="card-text">Tags: Corte</p>
+                    <p class="card-text">Facilidades: Wi-Fi</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Outros serviços aqui -->
+        <div class="col-md-4 mb-4 servico" data-preco="200" data-tags="Coloração" data-facilidades="Estacionamento">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Coloração Completa</h5>
+                    <p class="card-text">Preço: R$200</p>
+                    <p class="card-text">Tags: Coloração</p>
+                    <p class="card-text">Facilidades: Estacionamento</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4 servico" data-preco="150" data-tags="Hidratação" data-facilidades="Acessibilidade">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Hidratação Capilar</h5>
+                    <p class="card-text">Preço: R$150</p>
+                    <p class="card-text">Tags: Hidratação</p>
+                    <p class="card-text">Facilidades: Acessibilidade</p>
+                </div>
+            </div>
+
+        <!-- Transformação de Formas e Texturas dos Cabelos Femininos -->
+        
+        
+        </div>
+        <!--<h3 class="mb-3">Transformação de Formas e Texturas dos Cabelos Femininos</h3>-->
+        <div class="col-md-4 mb-4 servico" data-preco="280" data-tags="Alisamento, Hidroxidos" data-facilidades="Tratamento, Finalizacao">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Alisamento Capilar com Hidróxidos (sódio ou Guanidina)</h5>
+                    <p class="card-text">Preço: R$280 (curto) / R$320 (médio) / R$360 (longo) / R$400 (extralongo)</p>
+                    <p class="card-text">Tags: Alisamento, Hidróxidos</p>
+                    <p class="card-text">Facilidades: Tratamento, Finalização</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 mb-4 servico" data-preco="280" data-tags="Alisamento, Etico" data-facilidades="Tratamento, Finalizacao">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Alisamento Ético (Tiol de AMP)</h5>
+                    <p class="card-text">Preço: R$280 (curto) / R$320 (médio) / R$360 (longo) / R$400 (extralongo)</p>
+                    <p class="card-text">Tags: Alisamento, Ético</p>
+                    <p class="card-text">Facilidades: Tratamento, Finalização</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 mb-4 servico" data-preco="300" data-tags="Realinhamento, Termico" data-facilidades="Tratamento, Finalizacao">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Realinhamento Térmico (Tiol de amônio)</h5>
+                    <p class="card-text">Preço: R$300 (curto) / R$380 (médio) / R$400 (longo) / R$420 (extralongo)</p>
+                    <p class="card-text">Tags: Realinhamento, Térmico</p>
+                    <p class="card-text">Facilidades: Tratamento, Finalização</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 mb-4 servico" data-preco="270" data-tags="Texturizacao, Cachos" data-facilidades="Tratamento, Finalizacao">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Texturização/Soltura de Cachos</h5>
+                    <p class="card-text">Preço: R$270 (curto) / R$320 (médio) / R$370 (longo) / R$400 (extralongo)</p>
+                    <p class="card-text">Tags: Texturização, Cachos</p>
+                    <p class="card-text">Facilidades: Tratamento, Finalização</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 mb-4 servico" data-preco="250" data-tags="Relaxamento" data-facilidades="Tratamento">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Relaxamento</h5>
+                    <p class="card-text">Preço: R$250 (curto) / R$300 (médio) / R$350 (longo) / R$380 (extralongo)</p>
+                    <p class="card-text">Tags: Relaxamento</p>
+                    <p class="card-text">Facilidades: Tratamento</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 mb-4 servico" data-preco="350" data-tags="Permanente, Afro" data-facilidades="Tratamento, Finalizacao">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Permanente Afro</h5>
+                    <p class="card-text">Preço: R$350 (curto) / R$450 (médio) / R$500 (longo) / R$550 (extralongo)</p>
+                    <p class="card-text">Tags: Permanente, Afro</p>
+                    <p class="card-text">Facilidades: Tratamento, Finalização</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 mb-4 servico" data-preco="300" data-tags="Permanente, Convencional" data-facilidades="Tratamento, Finalizacao">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Permanente Convencional</h5>
+                    <p class="card-text">Preço: R$300 (curto) / R$400 (médio) / R$450 (longo) / R$500 (extralongo)</p>
+                    <p class="card-text">Tags: Permanente, Convencional</p>
+                    <p class="card-text">Facilidades: Tratamento, Finalização</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 mb-4 servico" data-preco="350" data-tags="Desintoxicacao, Cachos" data-facilidades="Tratamento, Finalizacao">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Desintoxicação Retorno dos Cachos (Tiol de AMP)</h5>
+                    <p class="card-text">Preço: R$350 (curto) / R$450 (médio) / R$500 (longo) / R$550 (extralongo)</p>
+                    <p class="card-text">Tags: Desintoxicação, Cachos</p>
+                    <p class="card-text">Facilidades: Tratamento, Finalização</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Transformação de Formas e Texturas dos Cabelos Masculinos -->
+        <!--<h3 class="mb-3">Outros Serviços Capilares</h3>-->
+        <div class="col-md-4 mb-4 servico" data-preco="50" data-tags="Texturizacao, Alisamento, Hidroxidos" data-facilidades="Tratamento, Wi-Fi, Estacionamento">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Texturização/Alisamento Capilar com Hidróxicos (sódio ou guanidina)</h5>
+                    <p class="card-text">Preço: R$50 (curto)</p>
+                    <p class="card-text">Tags: Texturização, Alisamento, Hidróxidos</p>
+                    <p class="card-text">Facilidades: Tratamento, Wi-Fi, Estacionamento</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 mb-4 servico" data-preco="80" data-tags="Relaxamento" data-facilidades="Tratamento, Wi-Fi, Estacionamento">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Relaxamento + Tratamento</h5>
+                    <p class="card-text">Preço: R$80 (curto)</p>
+                    <p class="card-text">Tags: Relaxamento</p>
+                    <p class="card-text">Facilidades: Tratamento, Wi-Fi, Estacionamento</p>
+                </div>
+            </div>
+        </div>
+
+        <!--Transformação de Cor dos Cabelos-->
+        <!--<h3 class="mb-3">Outros Serviços Capilares</h3>-->
+        <div class="col-md-4 mb-4 servico" data-preco="50" data-tags="Coloração" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Aplicação de Coloração até 2 cm</h5>
+                    <p class="card-text">Preço: R$50 (qualquer tamanho)</p>
+                    <p class="card-text">Tags: Coloração, Cliente traz a tinta</p>
+                    <p class="card-text">Facilidades: Wi-Fi</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 mb-4 servico" data-preco="50-75" data-tags="Coloração" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Aplicação de Coloração Cabelo Todo</h5>
+                    <p class="card-text">Preços: R$50 (curto) / R$60 (médio) / R$70 (longo) / R$75 (extralongo)</p>
+                    <p class="card-text">Tags: Coloração, Cliente traz a tinta</p>
+                    <p class="card-text">Facilidades: Wi-Fi</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 mb-4 servico" data-preco="280-440" data-tags="Decapagem" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Decapagem Global</h5>
+                    <p class="card-text">Preços: R$280 (curto) / R$380 (médio) / R$400 (longo) / R$440 (extralongo)</p>
+                    <p class="card-text">Tags: Decapagem</p>
+                    <p class="card-text">Facilidades: Wi-Fi</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 mb-4 servico" data-preco="270-450" data-tags="Mechas" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Design de Mechas Morena Iluminada + tonalização</h5>
+                    <p class="card-text">Preços: R$270 (curto) / R$330 (médio) / R$390 (longo) / R$450 (extralongo)</p>
+                    <p class="card-text">Tags: Mechas, Tonalização</p>
+                    <p class="card-text">Facilidades: Wi-Fi</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 mb-4 servico" data-preco="300-400" data-tags="Mechas, Californianas" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Design de Mechas Californianas + tonalização</h5>
+                    <p class="card-text">Preços: R$300 (médio) / R$350 (longo) / R$400 (extralongo)</p>
+                    <p class="card-text">Tags: Mechas, Californianas, Tonalização</p>
+                    <p class="card-text">Facilidades: Wi-Fi</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 mb-4 servico" data-preco="300-490" data-tags="Mechas, Global" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Design de Mechas Global + tonalização</h5>
+                    <p class="card-text">Preços: R$300 (curto) / R$380 (médio) / R$430 (longo) / R$490 (extralongo)</p>
+                    <p class="card-text">Tags: Mechas, Global, Tonalização</p>
+                    <p class="card-text">Facilidades: Wi-Fi</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 mb-4 servico" data-preco="180-240" data-tags="Mechas, Topo" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Design de Mechas no Topo + tonalização</h5>
+                    <p class="card-text">Preços: R$180 (curto) / R$200 (médio) / R$220 (longo) / R$240 (extralongo)</p>
+                    <p class="card-text">Tags: Mechas, Topo, Tonalização</p>
+                    <p class="card-text">Facilidades: Wi-Fi</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 mb-4 servico" data-preco="270-450" data-tags="Reflexos, Luzes" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Reflexos ou Luzes / Touca + tonalização</h5>
+                    <p class="card-text">Preços: R$270 (curto) / R$350 (médio) / R$400 (longo) / R$450 (extralongo)</p>
+                    <p class="card-text">Tags: Reflexos, Luzes, Tonalização</p>
+                    <p class="card-text">Facilidades: Wi-Fi</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tratamentos da Haste Capilar -->
+             <!--<h3 class="mb-3">Tratamentos da Haste Capilar</h3>-->
+         <!-- Tratamento: Argiloterapia/Detox Capilar + Hidratação + Alta Frequência -->
+<div class="col-md-4 mb-4 servico" data-preco="100" data-tags="Detox, Hidratação, Argiloterapia" data-facilidades="Wi-Fi, Desconto de Pacote">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Argiloterapia/Detox Capilar + Hidratação + Alta Frequência</h5>
+            <p class="card-text">Preço: R$100 (curto) / R$120 (médio) / R$130 (longo) / R$140 (extralongo)</p>
+            <p class="card-text">Tags: Detox, Hidratação, Argiloterapia</p>
+            <p class="card-text">Facilidades: Wi-Fi, Desconto de Pacote</p>
+        </div>
+    </div>
+</div>
+
+<!-- Tratamento: Cauterização -->
+<div class="col-md-4 mb-4 servico" data-preco="80" data-tags="Cauterização, Reconstrução, Hidratação" data-facilidades="Wi-Fi, Café">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Cauterização</h5>
+            <p class="card-text">Preço: R$80 (curto) / R$90 (médio) / R$100 (longo) / R$110 (extralongo)</p>
+            <p class="card-text">Tags: Cauterização, Reconstrução, Hidratação</p>
+            <p class="card-text">Facilidades: Wi-Fi, Café</p>
+        </div>
+    </div>
+</div>
+
+<!-- Tratamento: Hidratação Capilar -->
+<div class="col-md-4 mb-4 servico" data-preco="60" data-tags="Hidratação, Cuidados Capilares, Reconstrução" data-facilidades="Wi-Fi">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Hidratação Capilar</h5>
+            <p class="card-text">Preço: R$60 (curto) / R$70 (médio) / R$80 (longo) / R$90 (extralongo)</p>
+            <p class="card-text">Tags: Hidratação, Cuidados Capilares, Reconstrução</p>
+            <p class="card-text">Facilidades: Wi-Fi</p>
+        </div>
+    </div>
+</div>
+
+<!-- Tratamento: Hidratação Matizadora -->
+<div class="col-md-4 mb-4 servico" data-preco="55" data-tags="Hidratação, Matização, Cuidados Capilares" data-facilidades="Wi-Fi, Café">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Hidratação Matizadora</h5>
+            <p class="card-text">Preço: R$55 (curto) / R$65 (médio) / R$75 (longo) / R$85 (extralongo)</p>
+            <p class="card-text">Tags: Hidratação, Matização, Cuidados Capilares</p>
+            <p class="card-text">Facilidades: Wi-Fi, Café</p>
+        </div>
+    </div>
+</div>
+
+<!-- Tratamento: Nutrição Capilar -->
+<div class="col-md-4 mb-4 servico" data-preco="80" data-tags="Nutrição, Cabelos Saudáveis, Hidratação" data-facilidades="Wi-Fi">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Nutrição Capilar</h5>
+            <p class="card-text">Preço: R$80 (curto) / R$90 (médio) / R$100 (longo) / R$110 (extralongo)</p>
+            <p class="card-text">Tags: Nutrição, Cabelos Saudáveis, Hidratação</p>
+            <p class="card-text">Facilidades: Wi-Fi</p>
+        </div>
+    </div>
+</div>
+
+<!-- Tratamento: Nutrição Capilar com Ampola -->
+<div class="col-md-4 mb-4 servico" data-preco="80" data-tags="Nutrição, Ampola, Cabelos Saudáveis" data-facilidades="Wi-Fi, Café">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Nutrição Capilar com Ampola</h5>
+            <p class="card-text">Preço: R$80 (curto) / R$90 (médio) / R$100 (longo) / R$110 (extralongo)</p>
+            <p class="card-text">Tags: Nutrição, Ampola, Cabelos Saudáveis</p>
+            <p class="card-text">Facilidades: Wi-Fi, Café</p>
+        </div>
+    </div>
+</div>
+
+<!-- Tratamento: Reestruturação / Reposição de Massa -->
+<div class="col-md-4 mb-4 servico" data-preco="100" data-tags="Reestruturação, Reposição de Massa, Reconstrução" data-facilidades="Wi-Fi, Café">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Reestruturação / Reposição de Massa</h5>
+            <p class="card-text">Preço: R$100 (curto) / R$110 (médio) / R$120 (longo) / R$130 (extralongo)</p>
+            <p class="card-text">Tags: Reestruturação, Reposição de Massa, Reconstrução</p>
+            <p class="card-text">Facilidades: Wi-Fi, Café</p>
+        </div>
+    </div>
+</div>
+
+
+        <div class="col-md-4 mb-4 servico" data-preco="100" data-tags="Detox, Hidratação, Argiloterapia" data-facilidades="Wi-Fi, Desconto de Pacote">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Argiloterapia/Detox Capilar + Hidratação + Alta Frequência</h5>
+                    <p class="card-text">Preço: R$100 (curto) / R$120 (médio) / R$130 (longo) / R$140 (extralongo)</p>
+                    <p class="card-text">Tags: Detox, Hidratação, Argiloterapia</p>
+                    <p class="card-text">Facilidades: Wi-Fi, Desconto de Pacote</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4 servico" data-preco="15" data-tags="Esmaltação, Manicure, Pedicure" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Esmaltação (Cortar + Lixar + Esmaltar)</h5>
+                    <p class="card-text">Preço: R$15</p>
+                    <p class="card-text">Tags: Esmaltação, Manicure, Pedicure</p>
+                    <p class="card-text">Facilidades: Wi-Fi</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4 servico" data-preco="28" data-tags="Manicure" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"> Manicure </h5>
+                    <p class="card-text">Preço: R$28</p>
+                    <p class="card-text">Tags: Manicure</p>
+                    <p class="card-text">Facilidades: Wi-Fi</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4 servico" data-preco="5" data-tags="Francesinha, Inglesinha" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"> Inglesinha </h5>
+                    <p class="card-text">Preço: R$5</p>
+                    <p class="card-text">Tags: Francesinha, Inglesinha</p>
+                    <p class="card-text">Facilidades: Wi-Fi</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4 servico" data-preco="55" data-tags="Pedicure, Manicure" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body"> 
+                    <h5 class="card-title"> Pedicure e Manicure </h5>
+                    <p class="card-text">Preço: R$55</p>
+                    <p class="card-text">Tags: Pedicure, Manicure</p>
+                    <p class="card-text">Facilidades: Wi-Fi</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Serviços de Podologia -->
+        <!--<h3 class="mb-3">Serviços de Podologia</h3>-->
+        <div class="col-md-4 mb-4 servico" data-preco="135" data-tags="Órtese ungueal, Podoprofilaxia, Podologia" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Aplicação de Órtese ungueal + Podoprofilaxia Podal</h5>
+                    <p class="card-text">Preço: R$135</p>
+                    <p class="card-text">Tags: Órtese ungueal, Podoprofilaxia, Podologia</p>
+                    <p class="card-text">Facilidades: Wi-Fi</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4 servico" data-preco="150" data-tags="Unha Encravada, Onicocriptose, Podologia" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"> Unha Encravada </h5>
+                    <p class="card-text">Preço: R$150</p>
+                    <p class="card-text">Tags:Onicocriptose, Podologia</p>
+                    <p class="card-text">Facilidades: Wi-Fi</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Serviços de unhas em gel -->
+        <div class="col-md-4 mb-4 servico" data-preco="140" data-tags="Unhas em Gel, Alongamento" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Alongamento de Unhas em Gel (Encapsulada)</h5>
+                    <p class="card-text">Preço: R$140</p>
+                    <p class="card-text">Tags: Unhas em Gel, Alongamento</p>
+                    <p class="card-text">Facilidades: Wi-Fi</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sobrancelhas e maquiagens -->
+        <div class="col-md-4 mb-4 servico" data-preco="40" data-tags="Sobrancelhas, Coloração" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Coloração de Sobrancelhas</h5>
+                    <p class="card-text">Preço: R$40</p>
+                    <p class="card-text">Tags: Sobrancelhas, Coloração</p>
+                    <p class="card-text">Facilidades: Wi-Fi</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4 servico" data-preco="100" data-tags="Maquiagem" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Maquiagem</h5>
+                    <p class="card-text">Preço: R$100</p>
+                    <p class="card-text">Tags: Maquiagem</p>
+                    <p class="card-text">Facilidades: Wi-Fi</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4 servico" data-preco="98" data-tags="Epilação" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Fotoepilação – 1/2 Perna</h5>
+                    <p class="card-text">Preço: R$ 98</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4 servico" data-preco="89" data-tags="Epilação" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Fotoepilação – Abdômen</h5>
+                    <p class="card-text">Preço: R$ 89</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4 servico" data-preco="70" data-tags="Epilação" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Fotoepilação – Axilas</h5>
+                    <p class="card-text">Preço: R$ 70</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4 servico" data-preco="70" data-tags="Epilação" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Fotoepilação – Barba</h5>
+                    <p class="card-text">Preço: R$ 70</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4 servico" data-preco="98" data-tags="Epilação" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Fotoepilação – Braços Completos</h5>
+                    <p class="card-text">Preço: R$ 98</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4 servico" data-preco="60" data-tags="Epilação" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Fotoepilação – Buço ou Bigode</h5>
+                    <p class="card-text">Preço: R$ 60</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4 servico" data-preco="98" data-tags="Epilação" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Fotoepilação – Coxas Completas</h5>
+                    <p class="card-text">Preço: R$ 98</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4 servico" data-preco="98" data-tags="Epilação" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Fotoepilação – Glúteos</h5>
+                    <p class="card-text">Preço: R$ 98</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4 servico" data-preco="70" data-tags="Epilação" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Fotoepilação – Lateral Anal</h5>
+                    <p class="card-text">Preço: R$ 70</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4 servico" data-preco="70" data-tags="Epilação" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Fotoepilação – Nuca</h5>
+                    <p class="card-text">Preço: R$ 70</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4 servico" data-preco="60" data-tags="Epilação" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Fotoepilação – Orelhas</h5>
+                    <p class="card-text">Preço: R$ 60</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4 servico" data-preco="160" data-tags="Epilação" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Fotoepilação – Pernas Completas</h5>
+                    <p class="card-text">Preço: R$ 160</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4 servico" data-preco="70" data-tags="Epilação" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Fotoepilação – Pescoço</h5>
+                    <p class="card-text">Preço: R$ 70</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4 servico" data-preco="70" data-tags="Epilação" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Fotoepilação – Região Lombar</h5>
+                    <p class="card-text">Preço: R$ 70</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4 servico" data-preco="89" data-tags="Epilação" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Fotoepilação – Região Pubiana / Virilha</h5>
+                    <p class="card-text">Preço: R$ 89 (Cavada ou Completa)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4 servico" data-preco="89" data-tags="Epilação" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Fotoepilação – Rosto</h5>
+                    <p class="card-text">Preço: R$ 89</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4 servico" data-preco="60" data-tags="Epilação" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Fotoepilação – Queixo</h5>
+                    <p class="card-text">Preço: R$ 60</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4 servico" data-preco="70" data-tags="Epilação" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Fotoepilação – Tórax</h5>
+                    <p class="card-text">Preço: R$ 70</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--<h3 class="mb-3">Epilação com Luz Pulsada - Pacote com 10 sessões</h3>-->
+    <div class="row">
+        <div class="col-md-4 mb-4 servico" data-preco="900" data-tags="Epilação" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Pct – Fotoepilação – 1/2 Perna (Ambas as Pernas)</h5>
+                    <p class="card-text">Preço: R$ 900</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4 servico" data-preco="600" data-tags="Epilação" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Pct – Fotoepilação – Abdômen (unissex)</h5>
+                    <p class="card-text">Preço: R$ 600</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4 servico" data-preco="534" data-tags="Epilação" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Pct – Fotoepilação – Axilas</h5>
+                    <p class="card-text">Preço: R$ 534</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4 servico" data-preco="550" data-tags="Epilação" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Pct – Fotoepilação – Barba</h5>
+                    <p class="card-text">Preço: R$ 550</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4 servico" data-preco="700" data-tags="Epilação" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Pct – Fotoepilação – Braços Completos</h5>
+                    <p class="card-text">Preço: R$ 700</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4 servico" data-preco="400" data-tags="Epilação" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Pct – Fotoepilação – Buço ou Bigode</h5>
+                    <p class="card-text">Preço: R$ 400</p>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="col-md-4 mb-4 servico" data-preco="150" data-tags="Estética" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Limpeza de Pele Profunda</h5>
+                    <p class="card-text">Preço: R$ 150</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4 servico" data-preco="120" data-tags="Estética" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Peeling Químico</h5>
+                    <p class="card-text">Preço: R$ 120</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4 servico" data-preco="200" data-tags="Estética" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Hidratação Facial</h5>
+                    <p class="card-text">Preço: R$ 200</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4 servico" data-preco="180" data-tags="Estética" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Massagem Relaxante</h5>
+                    <p class="card-text">Preço: R$ 180</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4 servico" data-preco="250" data-tags="Estética" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Drenagem Linfática</h5>
+                    <p class="card-text">Preço: R$ 250</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--<h3 class="mb-3">Serviços de Penteados</h3>-->
+    <div class="row">
+        <div class="col-md-4 mb-4 servico" data-preco="100" data-tags="Penteado" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Penteado Casual</h5>
+                    <p class="card-text">Preço: R$ 100</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4 servico" data-preco="150" data-tags="Penteado" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Penteado para Festa</h5>
+                    <p class="card-text">Preço: R$ 150</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4 servico" data-preco="200" data-tags="Penteado" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Penteado para Noiva</h5>
+                    <p class="card-text">Preço: R$ 200</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4 servico" data-preco="120" data-tags="Penteado" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Trança Boxeadora</h5>
+                    <p class="card-text">Preço: R$ 120</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4 servico" data-preco="90" data-tags="Penteado" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Coque Simples</h5>
+                    <p class="card-text">Preço: R$ 90</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--<h3 class="mb-3">Outros Serviços Capilares</h3>-->
+    <div class="row">
+        <div class="col-md-4 mb-4 servico" data-preco="80" data-tags="Cabelo" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Corte de Cabelo</h5>
+                    <p class="card-text">Preço: R$ 80</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4 servico" data-preco="150" data-tags="Cabelo" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Coloração Completa</h5>
+                    <p class="card-text">Preço: R$ 150</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4 servico" data-preco="120" data-tags="Cabelo" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Mechas</h5>
+                    <p class="card-text">Preço: R$ 120</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4 servico" data-preco="100" data-tags="Cabelo" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Tratamento de Hidratação</h5>
+                    <p class="card-text">Preço: R$ 100</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4 servico" data-preco="90" data-tags="Cabelo" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Escova Simples</h5>
+                    <p class="card-text">Preço: R$ 90</p>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="col-md-4 mb-4 servico" data-preco="150" data-tags="Estética" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Limpeza de Pele Profunda</h5>
+                    <p class="card-text">Preço: R$ 150</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4 servico" data-preco="120" data-tags="Estética" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Peeling Químico</h5>
+                    <p class="card-text">Preço: R$ 120</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4 servico" data-preco="200" data-tags="Estética" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Hidratação Facial</h5>
+                    <p class="card-text">Preço: R$ 200</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4 servico" data-preco="180" data-tags="Estética" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Massagem Relaxante</h5>
+                    <p class="card-text">Preço: R$ 180</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4 servico" data-preco="250" data-tags="Estética" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Drenagem Linfática</h5>
+                    <p class="card-text">Preço: R$ 250</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--<h3 class="mb-3">Serviços de Penteados</h3>-->
+    <div class="row">
+        <div class="col-md-4 mb-4 servico" data-preco="100" data-tags="Penteado" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Penteado Casual</h5>
+                    <p class="card-text">Preço: R$ 100</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4 servico" data-preco="150" data-tags="Penteado" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Penteado para Festa</h5>
+                    <p class="card-text">Preço: R$ 150</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4 servico" data-preco="200" data-tags="Penteado" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Penteado para Noiva</h5>
+                    <p class="card-text">Preço: R$ 200</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4 servico" data-preco="120" data-tags="Penteado" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Trança Boxeadora</h5>
+                    <p class="card-text">Preço: R$ 120</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4 servico" data-preco="90" data-tags="Penteado" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Coque Simples</h5>
+                    <p class="card-text">Preço: R$ 90</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--<h3 class="mb-3">Outros Serviços Capilares</h3>-->
+    <div class="row">
+        <div class="col-md-4 mb-4 servico" data-preco="80" data-tags="Cabelo" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Corte de Cabelo</h5>
+                    <p class="card-text">Preço: R$ 80</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4 servico" data-preco="150" data-tags="Cabelo" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Coloração Completa</h5>
+                    <p class="card-text">Preço: R$ 150</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4 servico" data-preco="120" data-tags="Cabelo" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Mechas</h5>
+                    <p class="card-text">Preço: R$ 120</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4 servico" data-preco="100" data-tags="Cabelo" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Tratamento de Hidratação</h5>
+                    <p class="card-text">Preço: R$ 100</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4 servico" data-preco="90" data-tags="Cabelo" data-facilidades="Wi-Fi">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Escova Simples</h5>
+                    <p class="card-text">Preço: R$ 90</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+        
+    </div>
+</div>
+
+    </div>
+</div>
+        
+      
+            </div>
+        </div> -->
+        <!--Epilação com Luz Pulsada - Sessão Individual (Novo Serviço)-->
+        <!--Epilação com Luz Pulsada - Pacote com 10 sessões (Novo Serviço)-->
+        <!--Serviços de Estética-->
+        <!--Serviços de Penteados-->
+            <!-- Manicure e pedicure -->
+        
+
+
+
+<footer>
+    <div class="footer-content">
+        <div class="services-footer">
+            <h3>Encontre no Salão Senac</h3>
+            
+            <a href="">Unhas</a>
+            <a href="">Cabelos</a>
+            <a href="">Barbearia</a>
+            <a href="">Depilação</a>
+            <a href="">Maquiagem</a>
+            <a href="">Sobrancelhas</a>
+            <a href="">Massagem e Estética</a>
+            <a href="">Podologia</a>
+            
+        </div>
+        <div class="terms-footer">
+            <h3>Termos de Serviço</h3>
+            <p><a href="#">Termos de uso</a></p>
+            <p><a href="#">Dúvidas frequentes</a></p>
+            <p><a href="#">Política de privacidade</a></p>
+        </div>
+        <div class="contact-footer">
+            <h3>Contato</h3>
+            <p>Email: contato@salonsenac.com</p>
+            <p>Telefone: (11) 1234-5678</p>
+            <p>Endereço: Rua Exemplo, 123 - São Paulo, SP</p>
+        </div>
+    </div>
+    <div class="redes-footer">
+        <p>Nossas redes sociais</p>
+    </div>
+</footer>
+
+<!-- Scripts do Bootstrap e custom -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

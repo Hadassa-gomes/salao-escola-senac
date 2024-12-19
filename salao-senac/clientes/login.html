@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="../clientes/agendamentos/logo-white.png" alt="Logo do Salão" width="80" height="50"
+                    class="d-inline-block align-text-top">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="../Inicio/index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="agendamento.html">Agendamento</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="salaojw.html">Serviços</a>
+                    </li>
+                </ul>
+                <a href="login.html">
+                    <input class="btn btn-primary" type="submit" value="Cadastro">
+                </a>
+            </div>
+        </div>
+    </nav>
+    <header class="container-fluid d-flex" id="header__principal">
+        <div class=" w-100 h-15 text-center justify-content-center">
+            <h1 class="text-center p-1">Salão Senac</h1>
+        </div>
+    </header>
+    <div class="text-dark">
+        <h2 class="text-center mt-3 mb-3">Criar conta</h2>
+        <div>
+            <div class="container rounded-5 ps-4 pt-4 pb-1 pe-4 pb-1  mt-2 text-dark justify-content-start col-sm-5 shadow"
+                id="login__container">
+                <div class="form-floating mb-3" id="nome">
+                    <input type="text" class="form-control" placeholder="Insira seu nome" id="uname"></input>
+                    <label for="floatingInput">Nome:</label>
+                </div>
+                <div class="form-floating mb-3" id="email">
+                    <input type="email" class="form-control" id="floatingInput" placeholder="nome@exemplo.com">
+                    <label for="floatingInput">Endereço de Email:</label>
+                </div>
+                <div class="d-flex">
+                    <div class="form-floating mb-1 col-5">
+                        <input type="text" class="form-control" placeholder="(99)99999-9999" id="telefone"></input>
+                        <label for="floatingInput">Telefone:</label>
+                    </div>
+                    <div class="form-floating mb-3 col-sm-5 offset-sm-2">
+                        <input type="date" id="data" name="date" class="form-control">
+                        <label for="date" class="form-label">Data de nascimento:</label>
+                    </div>
+                </div>
+                <div class="form-floating mb-3" id="senha">
+                    <input type="password" class="form-control" id="floatingPassword" placeholder="Insira uma Senha">
+                    <label for="floatingPassword">Senha:</label>
+                </div>
+                <div class="form-floating mb-3" id="floatingPassword2">
+                    <input type="password" class="form-control" id="confirmarSenhaInput" placeholder="Insira uma Senha">
+                    <label for="confirmarSenhaInput">Digite a senha novamente:</label>
+                </div>
+                <!-- <div class="btn-group-horizontal" role="group" aria-label="Vertical radio toggle button group">
+                <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio1" autocomplete="off" checked>
+                <label class="btn btn-outline-primary" for="vbtn-radio1">Administrador</label>
+                <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio2" autocomplete="off">
+                <label class="btn btn-outline-primary" for="vbtn-radio2">Funcionario</label>
+              </div>
+              <br>
+              <br>
+              <br> -->
+                <div class="text-center">
+                    <button id="enviar" onclick="validarDadosPessoais()" class="btn btn-primary"
+                        type="submit">Enviar</button>
+                </div>
+                <p class="text-center pt-1">Você já tem uma conta? <a href="login1.html">Fazer login</a></p>
+            </div>
+        </div>
+        <nav class="navbar bg-body-tertiary m-2 mt-5 pe-3 ps-3 bg-opacity-25" id="footer__nav">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Condições de Uso</a>
+                <a class="navbar-brand" href="#">Política de Privacidade</a>
+                <a class="navbar-brand" href="#">Ajuda</a>
+                <a class="navbar-brand" href="#">Cookies</a>
+                <a class="navbar-brand" href="#">Anúncios Baseados em Interesses </a>
+            </div>
+        </nav>
+        <h6 class="text-center mt-3">© SENAC Todos os Direitos Reservados - 2017.</h6>
+
+        <script src="script/login.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"></script>
+</body>
+
+</html>

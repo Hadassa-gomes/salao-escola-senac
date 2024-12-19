@@ -1,0 +1,58 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: linear-gradient(90deg, #508bfc, #75a4f8);
+    transition: background 0.5s ease; 
+}
+
+.vh-100 {
+    background-color: #508bfc; /* Cor de fundo da seção */
+}
+
+.card {
+    border-radius: 1rem; /* Arredondamento das bordas do cartão */
+}
+
+.btn {
+    transition: background-color 0.3s; /* Efeito de transição para botões */
+    margin-top: 1rem
+}
+
+.btn-primary {
+    background-color: #007bff; /* Cor personalizada para o botão de login */
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Cor ao passar o mouse */
+}
+
+.btn-lg {
+    padding: 10px; /* Espaçamento interno para botões grandes */
+}
+
+.form-outline {
+    position: relative;
+    margin-bottom: 2rem; /* Espaçamento entre os campos */
+}
+
+.form-label {
+    position: absolute;
+    top: -10px;
+    left: 15px;
+    font-size: 0.9rem;
+    color: #555; /* Cor da etiqueta */
+}
+
+input.form-control {
+    padding: 10px; /* Ajuste o espaçamento interno do campo */
+    height: auto; /* Garanta que a altura do campo seja automática */
+}
+
+input.form-control:focus + .form-label, 
+input.form-control:not(:placeholder-shown) + .form-label {
+    top: -20px; /* Mova o rótulo para cima quando o campo é focado ou preenchido */
+    font-size: 0.8rem; /* Diminui o tamanho do rótulo quando focado */
+    color: #007bff; /* Cor do rótulo ao focar */
+}
+.form-check-input {
+    margin-top: 0.3rem; /* Ajuste de posição do checkbox */
+}

@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif !important;
+    font-weight: bold;
+    line-height: 1.6;
+    background-color: #f4f4f4 !important;
+    color: #333;
+}
+#header__principal {
+    background: #4CAF50 !important;
+    color: white !important;
+}
+#login__container {
+    background: rgb(196, 196, 196);
+}
+#footer__nav {
+    background: rgb(196, 196, 196);
+}
+#enviar {
+    background-color: #4CAF50 !important;
+}
+#imagens {
+    height: 20rem;
+    width: 25rem;
+    align-self: center;
+}

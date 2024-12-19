@@ -1,0 +1,225 @@
+/* Reset básico */
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} */
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.user-details {
+    display: flex;
+    align-items: center; /* Alinha verticalmente a imagem e o texto */
+    margin-top: 10px; /* Espaço acima da seção */
+}
+
+.user-image {
+    width: 80px; /* Largura da imagem, ajuste conforme necessário */
+    height: 80px; /* Altura da imagem, ajuste conforme necessário */
+    border-radius: 50%; /* Imagem circular */
+    object-fit: cover; /* Cobre todo o espaço da imagem mantendo a proporção */
+    margin-right: 10px; /* Espaço entre a imagem e o nome */
+}
+
+.team-members {
+    display: flex; /* Usando flexbox para alinhar os itens lado a lado */
+    justify-content: space-around; /* Espaçamento uniforme entre os itens */
+    flex-wrap: wrap; /* Permite que os itens se movam para a próxima linha se não houver espaço */
+}
+
+.team-member {
+    flex: 0 1 200px; /* Define um tamanho base e permite que encolha ou cresça */
+    margin: 10px; /* Adiciona espaço entre os membros */
+    text-align: center; /* Centraliza o texto dentro de cada membro */
+}
+
+/* header {
+    background: #4CAF50;
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+} */
+
+
+.navbar {
+    background-color: #E99420 !important; /* Forçar a cor da navbar */
+    width: auto;
+    height: 5em;
+    margin: auto;
+}
+nav {
+    background-color: #E99420 !important;
+}
+.navbar-brand {
+    color: #ffffff; /* Cor do texto da marca */
+}
+
+.navbar-nav .nav-link {
+    color: #ffffff; /* Cor dos links */
+}
+
+.navbar-nav .nav-link:hover {
+    color: #285AAA; /* Cor do texto ao passar o mouse */
+}
+
+.dropdown-menu {
+    background-color: #285AAA; /* Cor de fundo do dropdown */
+}
+
+.dropdown-item {
+    color: #285AAA; /* Cor dos itens do dropdown */
+}
+
+.dropdown-item:hover {
+    background-color: #285AAA; /* Cor ao passar o mouse no dropdown */
+}
+
+
+.auth a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.service-info {
+    padding: 20px;
+    text-align: center;
+    background: white;
+    margin: 20px auto; /* Centraliza e adiciona espaço em cima e embaixo */
+    border-radius: 20px; /* Ajustei para um valor mais sutil */
+    border: solid #f7a308; /* Adicionei ponto e vírgula */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 400px; /* Define uma largura máxima */
+}
+
+
+.calendar-container, .availability, .user-info, .team {
+    padding: 20px;
+    background: white;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h2, h3 {
+    margin-bottom: 10px;
+}
+
+.form-group {
+    margin: 15px 0;
+}
+
+.requiredCampos {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="date"], 
+input[type="time"] {
+    padding: 10px;
+    width: 10%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.available-time {
+    margin: 5px;
+    padding: 10px 15px;
+    background-color: #f7a308; /* Cor verde */
+    color: white;
+    border: solid #aca6a6;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.availability h4 {
+    margin-top: 8px; /* Espaço acima dos títulos de turno */
+    margin-bottom: 5px; /* Espaço abaixo dos títulos de turno */
+}
+
+.availability p {
+    margin-bottom: 10px; /* Espaço abaixo das mensagens de disponibilidade */
+}
+
+.available-time:hover {
+    background-color: #45a049; /* Cor mais escura ao passar o mouse */
+}
+
+.user-info, .team {
+    display: none; /* Inicialmente escondido */
+}
+
+.team-members {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Para garantir que as imagens fiquem em múltiplas linhas em telas menores */
+}
+
+.team-member {
+    text-align: center;
+    width: 30%; /* Largura fixa para cada membro da equipe */
+    margin-bottom: 20px; /* Espaçamento inferior */
+}
+
+.team-member img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; /* Imagem circular */
+}
+
+footer {
+    background: #1E498E;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    margin: 0%;
+}
+
+.footer-content div {
+    width: 30%;
+}
+
+footer p {
+    margin-top: 10px;
+}
+
+.services-footer {
+    text-align: left; /* Alinha o texto à esquerda */
+    margin: 20px 0; /* Espaçamento acima e abaixo da seção */
+}
+
+.services-footer a {
+    display: block; /* Faz com que cada link ocupe uma linha inteira */
+    text-decoration: none; /* Remove o sublinhado */
+    color: #ffffff; /* Cor do texto */
+    margin: 5px 0; /* Espaçamento entre os links */
+    padding: 10px; /* Espaço interno */
+     /* Borda verde */
+    border-radius: 5px; /* Bordas arredondadas */
+    transition: background-color 0.3s; /* Transição suave */
+}
+
+.services-footer a:hover {
+    background-color: #f7a308; /* Cor mais escura ao passar o mouse */
+    color: white; /* Muda a cor do texto ao passar o mouse */
+}
+
+.terms-footer a{
+ color: #f4f4f4;
+
+}
+.terms-footer a:hover {
+    color: #f7a308; /* Cor laranja ao passar o mouse */
+}

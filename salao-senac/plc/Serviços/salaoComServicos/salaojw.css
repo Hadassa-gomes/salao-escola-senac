@@ -1,0 +1,73 @@
+body {
+    background-color: #f8f9fa;
+}
+
+/*h3 {
+    color: #333;
+}*/
+
+.card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+    color: #333;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+}
+footer {
+    background: #1E498E;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    margin: 0%;
+}
+
+.footer-content div {
+    width: 30%;
+}
+
+footer p {
+    margin-top: 10px;
+}
+
+.services-footer {
+    text-align: left; /* Alinha o texto à esquerda */
+    margin: 20px 0; /* Espaçamento acima e abaixo da seção */
+}
+
+.services-footer a {
+    display: block; /* Faz com que cada link ocupe uma linha inteira */
+    text-decoration: none; /* Remove o sublinhado */
+    color: #ffffff; /* Cor do texto */
+    margin: 5px 0; /* Espaçamento entre os links */
+    padding: 10px; /* Espaço interno */
+     /* Borda verde */
+    border-radius: 5px; /* Bordas arredondadas */
+    transition: background-color 0.3s; /* Transição suave */
+}
+
+.services-footer a:hover {
+    background-color: #f7a308; /* Cor mais escura ao passar o mouse */
+    color: white; /* Muda a cor do texto ao passar o mouse */
+}
+
+.terms-footer a{
+ color: #f4f4f4;
+
+}
+.terms-footer a:hover {
+    color: #f7a308; /* Cor laranja ao passar o mouse */
+}
+

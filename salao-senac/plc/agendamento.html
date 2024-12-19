@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style\agendamento.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <title>Salão Senac - Serviço </title>
+</head>
+
+<body>
+    <!-- <header>
+        <h1>Salão Senac</h1>
+        <div class="auth">
+            <a href="#">Cadastrar</a> | <a href="#">Entrar</a>
+        </div>
+    </header> -->
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="agendamentos/logo-white.png" alt="Logo do Salão" width="80" height="50"
+                    class="d-inline-block align-text-top">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="agendamento.html">Agendamento</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="salaojw.html">Serviços</a>
+                    </li>
+                </ul>
+                <a href="perfil.html">
+                    <input class="btn btn-primary" type="submit" value="Perfil">
+                </a>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <main>
+        <section class="service-info">
+            <h2>Serviço: Corte a Seco</h2>
+            <p>Preço: R$ 150</p>
+        </section>
+
+        <section class="calendar-container">
+            <h3>Escolha o seu horário</h3>
+            <div class="calendar" id="calendar"></div>
+            <div class="form-group">
+
+                <input type="date" id="appointmentDate" name="appointmentDate" required>
+            </div>
+            <p id="selected-date"></p>
+        </section>
+
+        <section class="availability">
+            <h3>Escolha Seu Horário</h3>
+            <div class="form-group">
+                <div>
+                    <h4>Manhã</h4>
+                    <p>Não há horários disponíveis nesse período.</p>
+
+                    <h4>Tarde</h4>
+                    <button id="time-17-00" class="available-time"
+                        onclick="toggleTime('17:00', 'Sarah', this)">17:00</button>
+
+                    <h4>Noite</h4>
+                    <p>Não há horários disponíveis nesse período.</p>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="user-info" id="user-info">
+            <h3>Horário Selecionado: <span id="selected-time"></span></h3>
+            <div class="user-details">
+                <img src="agendamentos/image.png" alt="duda" class="user-image">
+                <p>Usuária: <span id="user-name"></span></p>
+            </div>
+        </section>
+
+        <section class="team" id="team-info" style="display: none;">
+            <h3>Indisponíveis no horário selecionado:</h3>
+            <div class="team-members">
+                <div class="team-member">
+                    <img src="agendamentos/funcionario.png" alt="Anderson Couto">
+                    <p>Anderson Couto
+                        <i class="fas fa-heart" style="color: red; font-size: 0.8em;"></i> 12
+                    </p>
+                    <button onclick="redirectToCalendar('Anderson', 'assets/funcionario.png', 4.5)">Ver
+                        Disponibilidade</button>
+                </div>
+                <div class="team-member">
+                    <img src="agendamentos/funcionária 2.jpg" alt="Liliana">
+                    <p>Liliana <i class="fas fa-heart" style="color: red; font-size: 0.8em;"></i> 40</p>
+                    <button onclick="redirectToCalendar('Liliana', 'assets/funcionario2.png', 40)">Ver
+                        Disponibilidade</button>
+                </div>
+                <div class="team-member">
+                    <img src="agendamentos/funcionaria 3.webp" alt="Marina">
+                    <p>Juliana <i class="fas fa-heart" style="color: red; font-size: 0.8em;"></i> 57</p>
+                    <button onclick="redirectToCalendar('Marina')">Ver Disponibilidade</button>
+                </div>
+                <div class="team-member">
+                    <img src="agendamentos/funcionario 4.avif" alt="Renato">
+                    <p>Renato <i class="fas fa-heart" style="color: red; font-size: 0.8em;"></i>40</p>
+                    <button onclick="redirectToCalendar('Renata')">Ver Disponibilidade</button>
+                </div>
+            </div>
+        </section>
+
+
+
+        <footer>
+            <div class="footer-content">
+                <div class="services-footer">
+                    <h3>Encontre no Salão Senac</h3>
+
+                    <a href="">Unhas</a>
+                    <a href="">Cabelos</a>
+                    <a href="">Barbearia</a>
+                    <a href="">Depilação</a>
+                    <a href="">Maquiagem</a>
+                    <a href="">Sobrancelhas</a>
+                    <a href="">Massagem e Estética</a>
+                    <a href="">Podologia</a>
+
+                </div>
+                <div class="terms-footer">
+                    <h3>Termos de Serviço</h3>
+                    <p><a href="#">Termos de uso</a></p>
+                    <p><a href="#">Dúvidas frequentes</a></p>
+                    <p><a href="#">Política de privacidade</a></p>
+                </div>
+                <div class="contact-footer">
+                    <h3>Contato</h3>
+                    <p>Email: contato@salonsenac.com</p>
+                    <p>Telefone: (11) 1234-5678</p>
+                    <p>Endereço: Rua Exemplo, 123 - São Paulo, SP</p>
+                </div>
+            </div>
+            <div class="redes-footer">
+                <p>Nossas redes sociais</p>
+            </div>
+        </footer>
+    </main>
+
+    <script src="script/agendamento.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

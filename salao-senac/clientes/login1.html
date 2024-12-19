@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <link rel="stylesheet" href="index.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+    }
+
+    .login-container {
+      width: 100%;
+      max-width: 400px;
+      padding: 20px;
+      background: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .logo {
+      margin-bottom: 20px;
+    }
+
+    .logo img {
+      max-width: 50%;
+      height: auto;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      font-size: 14px;
+      word-wrap: break-word;
+    }
+
+    .form-group input {
+      width: 90%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+
+    .form-group input:focus {
+      border-color: #007BFF;
+      outline: none;
+    }
+
+    .dropdown {
+      position: relative;
+      margin-bottom: 15px;
+    }
+
+    .dropdown select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+
+    .dropdown select:focus {
+      border-color: #007BFF;
+      outline: none;
+    }
+
+    .login-type {
+      margin-bottom: 15px;
+      text-align: left;
+    }
+
+    .login-type label {
+      margin-right: 10px;
+      font-size: 14px;
+      font-weight: normal;
+    }
+
+    .login-buttons {
+      display: flex;
+      justify-content: center;
+      margin-top: 15px;
+    }
+
+    .login-button {
+      width: 100%;
+      padding: 10px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .login-button:hover {
+      background-color: #0056b3;
+    }
+
+    .forgot-password {
+      margin-top: 15px;
+      font-size: 14px;
+    }
+
+    .forgot-password a {
+      color: #007BFF;
+      text-decoration: none;
+    }
+
+    .forgot-password a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="logo">
+          <img src="imagens/logo senac.png" alt="Logo">
+        </div>
+        <form>
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username">
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password">
+          </div>
+    
+          <button type="button" onclick="redirectToPage('cliente')">Cliente</button>
+          <button type="button" onclick="redirectToPage('administrador')">Administrador</button>
+    
+          <div class="login-buttons">
+            
+            
+    <button type="submit" class="login-button">Login</button>
+          </div>
+          <div class="forgot-password">
+            
+          
+    <a href="#">Forgot your password? Recover</a>
+          </div>
+        </form>
+      </div>
+    
+      <script>
+        func
+    
+        function redirectToPage(userType) {
+            if (userType === 'cliente') {
+                window.location.href = 'index.html'; // Página do cliente
+            } else if (userType === 'administrador') {
+                window.location.href = '../funcionarios/adm.html'; // Página do administrador
+            }
+        }
+      </script>
+    </body>
+
+
+<style>
+    /* Estilos gerais da página */
+    
+
+    body{
+        margin: 20;
+    }
+
+    /* Estilo dos botões */
+    button {
+        background-color: #007bff; /* Cor do botão */
+        color: white;
+        font-size: 16px;
+        padding: 15px 30px;
+        margin: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+       
+    }
+
+    /* Estilo para o botão "Administrador" */
+    button:nth-child(2) {
+        background-color: #007bff; /* Cor do botão administrador */
+    }
+
+    /* Efeito ao passar o mouse sobre o botão */
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    /* Efeito para o botão "Administrador" */
+    button:nth-child(2):hover {
+        background-color: #0056b3;
+    }
+</style>
+
+
+
+<script>
+    function redirectToPage(userType) {
+        if (userType === 'cliente') {
+            window.location.href = 'index.html'; // Página do cliente
+        } else if (userType === 'administrador') {
+            window.location.href = '../funcionarios/adm.html'; // Página do administrador
+        }
+    }
+</script>
+
+
+    
+</body>
+</html>

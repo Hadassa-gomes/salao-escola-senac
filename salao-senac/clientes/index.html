@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="index.css">
+  <title>Salão Escola Senac</title>
+</head>
+
+
+<style>
+  /* Estilo do botão sanduíche */
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  .hamburger div {
+    width: 100%;
+    height: 4px;
+    background-color: #fff;
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  /* Menu dropdown */
+  .custom-dropdown {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    /* Ajuste conforme necessário */
+    right: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+  }
+
+  .custom-dropdown a {
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .custom-dropdown a:last-child {
+    border-bottom: none;
+  }
+
+  .custom-dropdown a:hover {
+    background-color: #f1f1f1;
+  }
+
+  /* Estado ativo do menu */
+  .custom-dropdown.active {
+    display: flex;
+  }
+</style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="../clientes/agendamentos/logo-white.png" alt="Logo do Salão" width="80" height="50"
+          class="d-inline-block align-text-top">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="../plc/index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="../plc/agendamento.html">Agendamento</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../plc/salaojw.html">Serviços</a>
+          </li>
+        </ul>
+        <a href="../plc/perfil.html">
+          <input class="btn btn-primary" type="submit" value="Perfil">
+        </a>
+      </div>
+    </div>
+  </nav>
+
+
+  <script>
+    // Controle do menu sanduíche
+    const hamburgerButton = document.getElementById('hamburger-button');
+    const dropdownMenu = document.getElementById('dropdown-menu');
+
+    hamburgerButton.addEventListener('click', () => {
+      dropdownMenu.classList.toggle('active');
+    });
+
+    // Fechar o menu ao clicar fora dele
+    document.addEventListener('click', (event) => {
+      if (!dropdownMenu.contains(event.target) && !hamburgerButton.contains(event.target)) {
+        dropdownMenu.classList.remove('active');
+      }
+    });
+  </script>
+
+  <!-- carousel -->
+  <style>
+    .carousel {
+      width: 100%;
+      height: 600px;
+      margin: auto;
+      overflow: hidden;
+
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      position: relative;
+    }
+
+    .carousel-images {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-images img {
+      width: 100%;
+      height: 100%;
+      /* Ajusta a altura da imagem para caber no carrossel */
+      object-fit: cover;
+      /* Mantém a proporção da imagem */
+
+    }
+
+    .carousel-buttons {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .carousel-buttons button {
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 5px;
+      opacity: 0.7;
+    }
+
+    .carousel-buttons button:hover {
+      opacity: 1;
+    }
+  </style>
+  </head>
+
+  <body>
+    <div class="carousel">
+      <div class="carousel-images">
+        <img src="imagens/cabelereira senac.jpg" alt="Imagem 1">
+        <img src="imagens/funcionarias senac.jpg" alt="Imagem 2">
+        <img src="imagens/FA04481.jpg" alt="Imagem 3">
+      </div>
+      <div class="carousel-buttons">
+        <button onclick="prevSlide()">&#8592;</button>
+        <button onclick="nextSlide()">&#8594;</button>
+      </div>
+    </div>
+
+    <script>
+      let currentIndex = 0;
+
+      function showSlide(index) {
+        const slides = document.querySelectorAll('.carousel-images img');
+        const totalSlides = slides.length;
+        if (index >= totalSlides) {
+          currentIndex = 0;
+        } else if (index < 0) {
+          currentIndex = totalSlides - 1;
+        } else {
+          currentIndex = index;
+        }
+        const offset = -currentIndex * 100;
+        document.querySelector('.carousel-images').style.transform = `translateX(${offset}%)`;
+      }
+
+      function nextSlide() {
+        showSlide(currentIndex + 1);
+      }
+
+      function prevSlide() {
+        showSlide(currentIndex - 1);
+      }
+
+      // Inicializa o carrossel
+      showSlide(currentIndex);
+    </script>
+    <!-- Textos -->
+    <section class="intro-section">
+      <div class="text-area">
+        <h1>Salão Senac</h1>
+        <p>Estamos encantados em recebê-lo em nosso espaço, onde sua beleza e bem-estar são nossa prioridade.
+          Aqui, você encontrará uma equipe de profissionais dedicados prontos para realçar sua beleza natural e
+          proporcionar momentos de relaxamento e autocuidado.</p>
+      </div>
+      <div class="image-area">
+        <img src="imagens/logo senac.png" alt="Logo do Senac">
+      </div>
+    </section>
+
+
+    <!-- Mais agendados mais segundo carousel -->
+
+    <h2>Mais agendados</h2>
+
+    <div class="cards-container">
+      <div class="card">
+        <img src="imagens/corte de cabeloo.png" alt="Corte de Cabelo" class="card-image">
+        <h3 class="card-title">Corte de Cabelo</h3>
+      </div>
+      <div class="card">
+        <img src="imagens/manicure 1.png" alt="Manicure e Pedicure" class="card-image">
+        <h3 class="card-title">Manicure e Pedicure</h3>
+      </div>
+      <div class="card">
+        <img src="imagens/mulher 1.png" alt="Tratamento Capilar" class="card-image">
+        <h3 class="card-title">Tratamento Capilar</h3>
+      </div>
+    </div>
+
+
+
+    <!-- acordion todos os serviços -->
+
+    <h2>Todos os Serviços</h2>
+
+    <div class="accordion" id="accordionExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+            aria-expanded="true" aria-controls="collapseOne">
+            <strong>Coloração</strong>
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <p>Transforme seu visual com nosso serviço de coloração! Oferecemos uma ampla gama de tonalidades, desde os
+              clássicos aos mais ousados, utilizando produtos de alta qualidade que cuidam dos seus fios. Nossa equipe
+              de profissionais está pronta para atender suas necessidades, garantindo resultados vibrantes e duradouros.
+              Agende seu horário e realce sua beleza!</p>
+            <button type="button" class="btn btn-outline-primary">Agende</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            <strong>Corte</strong>
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <p>Renove seu estilo com nosso serviço de corte! Nossos profissionais experientes estão prontos para criar o
+              visual perfeito, desde cortes clássicos até os mais modernos. Utilizamos técnicas atualizadas para
+              garantir um resultado que valoriza seu formato de rosto e textura de cabelo. Agende seu horário e sinta-se
+              ainda mais confiante!</p>
+            <button type="button" class="btn btn-outline-primary">Agende</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            <strong>Barbearia</strong>
+          </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <p>Experimente nosso serviço de barbearia, onde tradição e estilo se encontram! Nossos barbeiros
+              especializados oferecem cortes de cabelo e barba com precisão, além de cuidados como toalhas quentes e
+              finalização com produtos de qualidade. Venha relaxar e sair com um visual impecável. Agende seu horário e
+              transforme seu estilo!</p>
+            <button type="button" class="btn btn-outline-primary">Agende</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+            <strong>Manicure</strong>
+          </button>
+        </h2>
+        <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <p>Oferecemos serviços de manicure para embelezar suas unhas com estilo e elegância. Nossos profissionais
+              utilizam produtos de qualidade e técnicas modernas para garantir um resultado impecável. Agende seu
+              horário e cuide das suas mãos!</p>
+            <button type="button" class="btn btn-outline-primary">Agende</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+            <strong>Maquiagem</strong>
+          </button>
+        </h2>
+        <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <p>Oferecemos serviços de maquiagem para realçar sua beleza com estilo e elegância. Nossos profissionais
+              utilizam produtos de qualidade e técnicas modernas para garantir um resultado impecável. Agende seu
+              horário e fique ainda mais deslumbrante!</p>
+            <button type="button" class="btn btn-outline-primary">Agende</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+      integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+      crossorigin="anonymous"></script>
+  </body>
+
+
+  <!-- comentarios -->
+
+  <section class="comments-section">
+    <h2>O que nossos clientes estão dizendo</h2>
+    <div class="comment">
+      <div class="customer-info">
+        <img src="imagens/mulher oculos.png" alt="Foto do cliente">
+        <h3>Maria Silva</h3>
+      </div>
+      <p class="review-text">"Adorei o atendimento! O salão tem um ambiente incrível e as profissionais são super
+        atenciosas. Recomendo demais!"</p>
+      <div class="rating">★★★★★</div>
+    </div>
+
+    <div class="comment">
+      <div class="customer-info">
+        <img src="imagens/cara 1.png" alt="Foto do cliente">
+        <h3>João Pereira</h3>
+      </div>
+      <p class="review-text">"Excelente experiência! Meu cabelo ficou maravilhoso, e o atendimento foi de primeira. Com
+        certeza voltarei."</p>
+      <div class="rating">★★★★☆</div>
+    </div>
+
+    <div class="comment">
+      <div class="customer-info">
+        <img src="imagens/woman.png" alt="Foto do cliente">
+        <h3>Ana Costa</h3>
+      </div>
+      <p class="review-text">"Profissionais qualificados e muito atenciosos. O ambiente é super aconchegante. Não vejo a
+        hora de voltar!"</p>
+      <div class="rating">★★★★★</div>
+    </div>
+  </section>
+
+
+  <!-- Footer -->
+
+  <footer>
+    <div class="footer-content">
+      <div class="services-footer">
+        <h3>Encontre no Salão Senac</h3>
+
+        <a href="">Unhas</a>
+        <a href="">Cabelos</a>
+        <a href="">Barbearia</a>
+        <a href="">Depilação</a>
+        <a href="">Maquiagem</a>
+        <a href="">Sobrancelhas</a>
+        <a href="">Massagem e Estética</a>
+        <a href="">Podologia</a>
+
+      </div>
+      <div class="terms-footer">
+        <h3>Termos de Serviço</h3>
+        <p><a href="#">Termos de uso</a></p>
+        <p><a href="#">Dúvidas frequentes</a></p>
+        <p><a href="#">Política de privacidade</a></p>
+      </div>
+      <div class="contact-footer">
+        <h3>Contato</h3>
+        <p>Email: contato@salonsenac.com</p>
+        <p>Telefone: (11) 1234-5678</p>
+        <p>Endereço: Rua Exemplo, 123 - São Paulo, SP</p>
+      </div>
+    </div>
+    <div class="redes-footer">
+      <p>Nossas redes sociais</p>
+    </div>
+  </footer>
+
+
+</html>
